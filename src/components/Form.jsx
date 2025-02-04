@@ -13,9 +13,24 @@ return (
             <input type="text"/>
         </div>
         <div className="date">
-            <label>Today's Date</label>
+            <label>Date</label>
             <input 
                 type="date"/>
+        </div>
+        <div className="mood">
+                <label>Mood</label>
+                <select>
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="Excited">Excited</option>
+                    <option value="Bored">Bored</option>
+                    <option value="Scared">Scared</option>
+                    <option value="unsure">Unsure</option>
+                </select>
+        </div>
+        <div className="inspiration">
+            <label>Inspiration</label>
+            <input type="text"/>
         </div>
         <div className="image-url">
             <label>Image URL</label>

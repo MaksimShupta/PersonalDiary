@@ -1,27 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router'; 
+import Lottie from 'lottie-react';  
+import glassAnimation from '../assets/glass.json'; 
+import '../style.css';
 
 const Home = () => {
   const [gradient, setGradient] = useState('');
-
+  
   useEffect(() => {
     let currentIndex = 0;
+    let gradients = [];
 
     const fetchGradients = async () => {
-      const response = await fetch(
-        'https://raw.githubusercontent.com/webkul/coolhue/master/src/gradients.json'
-      );
-      const data = await response.json();
+      try {
+        const response = await fetch('/gradients.json');
+        const data = await response.json();
+        gradients = data.gradients;
 
-      const changeGradient = () => {
-        const newGradient = data.gradients[currentIndex % data.gradients.length];
-        setGradient(`linear-gradient(${newGradient.colors.join(', ')})`);
-        currentIndex++;
-      };
+        setGradient(`linear-gradient(to bottom, ${gradients[currentIndex].colors.join(', ')})`);
 
-      changeGradient(); // Set initial gradient
-      const interval = setInterval(changeGradient, 5000); // Change every 5 seconds
+        const interval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % gradients.length;
 
-      return () => clearInterval(interval); // Clean up on unmount
+          setGradient(`linear-gradient(to bottom, ${gradients[currentIndex].colors.join(', ')})`);
+        }, 5000); 
+
+        return () => clearInterval(interval); 
+      } catch (error) {
+        console.error('Failed to fetch gradients:', error);
+      }
     };
 
     fetchGradients();
@@ -29,11 +36,20 @@ const Home = () => {
 
   return (
     <div
-      className="w-full h-screen transition-all duration-1000 ease-in-out"
-      style={{ backgroundImage: gradient }}
+      className="fixed top-0 left-0 w-full h-full transition-all duration-[2000ms] ease-in-out" 
+      style={{
+        backgroundImage: gradient,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <div className="flex items-center justify-center h-full text-white text-3xl font-bold">
+      <div className="flex flex-col items-center justify-center h-full text-white text-4xl font-extrabold space-y-4">
         <h1>Empty your mind</h1>
+        
+        <Link to="/entry/:entry">
+          <Lottie animationData={glassAnimation} loop={true} autoplay={true} className="w-48 h-48" />
+        </Link>
+        
         <h1>Fill your cup</h1>
       </div>
     </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router'; 
 import Lottie from 'lottie-react';  
 import glassAnimation from '../assets/glass.json'; 
-import '../style.css';
 
 const Home = () => {
   const [gradient, setGradient] = useState('');
@@ -46,7 +45,7 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center h-full text-white text-4xl font-extrabold space-y-4">
         <h1>Empty your mind</h1>
         
-        <Link to="/entry/:entry">
+        <Link to="/myjournal">
           <Lottie animationData={glassAnimation} loop={true} autoplay={true} className="w-48 h-48" />
         </Link>
         

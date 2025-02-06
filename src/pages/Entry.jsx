@@ -2,7 +2,7 @@ import Form from '../components/Form'
 
 function Entry() {
     return (
-      <div>
+      <div className="pt-16">
           <Form />
       </div>
     )

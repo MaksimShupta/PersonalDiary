@@ -5,6 +5,9 @@ import Button from "../components/Button";
 const MyJournal = () => {
   const [entries, setEntries] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [selectedDate, setSelectedDate] = useState();
+
+  console.log(entries);
 
   useEffect(() => {
     //console.log('Entries updated:', entries);
@@ -12,6 +15,11 @@ const MyJournal = () => {
     if (savedEntries) {
       setEntries(savedEntries);
     }
+    const storedDate = localStorage.getItem("selectedDate");
+    if (storedDate) {
+      setSelectedDate(storedDate);
+    }
+    console.log("Stored date: ", storedDate);
   }, []);
 
   useEffect(() => {
@@ -28,13 +36,14 @@ const MyJournal = () => {
   };
 
   const handleFormSubmit = (entryData) => {
-    const today = new Date().toISOString().split("T")[0];
-    const updatedEntries = { ...entries, [today]: entryData };
-    setEntries(updatedEntries);
-    //setEntries((prevEntries) => ({
-    //  ...prevEntries,
-    //  [today]: entryData,
-    //}));
+    //const today = new Date().toISOString().split("T")[0];
+    //const updatedEntries = { ...entries, [today]: entryData };
+    //setEntries(updatedEntries);
+    if (!selectedDate) return;
+    setEntries((prevEntries) => ({
+      ...prevEntries,
+      [selectedDate]: entryData,
+    }));
     setShowModal(false);
     alert("Entry Submitted: enjoy your peace of mind!");
   };

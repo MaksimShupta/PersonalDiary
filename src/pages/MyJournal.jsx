@@ -56,7 +56,7 @@ const MyJournal = () => {
 
       {/* Aggregated Journal Entries Display */}
       <div className="mt-8 w-full">
-        <h2 className="text-4xl text-[#411F31] font-caudex mb-4 text-center">All Journal Entries</h2>
+        <h2 className="text-4xl text-[#411F31] font-caudex mb-8 text-center">All Journal Entries</h2>
         <div className="space-y-4 flex justify-center">
           {Object.entries(entries)
             .sort(([dateA], [dateB]) => new Date(dateA) - new Date(dateB))

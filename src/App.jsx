@@ -3,12 +3,12 @@ import Home from "./pages/Home";
 import Calendar from "./pages/Calendar";
 import MyJournal from "./pages/MyJournal";
 import MainLayout from "./layouts/MainLayout";
+import Navbar from "./components/Navbar";
 import "@fontsource/carter-one";
 import "@fontsource/caudex";
 import "./style.css";
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState(null);
   return (
     <BrowserRouter>
       <Navbar />

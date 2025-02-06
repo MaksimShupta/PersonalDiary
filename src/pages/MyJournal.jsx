@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "../components/Form";
 import Button from "../components/Button";
+import JournalCard from "../components/JournalCard";
 
 const MyJournal = () => {
   const [entries, setEntries] = useState({});
@@ -52,16 +53,15 @@ const MyJournal = () => {
       )}
 
       {/* Aggregated Journal Entries Display */}
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">All Journal Entries</h2>
-        {Object.entries(entries)
-          .sort(([dateA], [dateB]) => new Date(dateA) - new Date(dateB))
-          .map(([date, entry]) => (
-            <div key={date} className="p-4 mb-4 rounded-lg shadow-md">
-              <h3 className="text-lg font-medium text-blue-600">{entry.title}</h3>
-              <p>{entry.content}</p>
-            </div>
-          ))}
+      <div className="mt-8 w-full">
+        <h2 className="text-4xl text-[#411F31] font-caudex mb-4 text-center">All Journal Entries</h2>
+        <div className="space-y-4 flex justify-center">
+          {Object.entries(entries)
+            .sort(([dateA], [dateB]) => new Date(dateA) - new Date(dateB))
+            .map(([date, entry]) => (
+              <JournalCard key={date} entry={entry} />
+            ))}
+        </div>
       </div>
     </div>
   );

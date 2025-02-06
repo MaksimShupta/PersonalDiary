@@ -13,7 +13,8 @@ const initializeData = () => {
       inspiration: "Creative Expression",
       content:
         "Attended an amazing online writing workshop today. The exercises we did really helped unlock some creative blocks I've been experiencing. The instructor shared some brilliant techniques for character development and story structure. Can't wait to apply these to my own writing!",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&auto=format",
     },
     "2025-01-29": {
       title: "Nature Photography Day",
@@ -22,7 +23,8 @@ const initializeData = () => {
       inspiration: "Natural Beauty",
       content:
         "Spent the whole day at the botanical gardens with my new camera. The winter flowers are stunning, and I caught some amazing shots of frost patterns on the leaves. Photography really helps me see the world differently.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1420745981456-b95fe23f5753?w=800&auto=format",
     },
     "2025-01-30": {
       title: "Health Journey Milestone",
@@ -31,7 +33,8 @@ const initializeData = () => {
       inspiration: "Personal Health",
       content:
         "Hit my fitness goal for the month! Three months of consistent workouts and healthy eating are really paying off. Not just physically - I feel more energetic and focused throughout the day. Small steps really do lead to big changes.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format",
     },
     "2025-01-31": {
       title: "Late Night Stargazing",
@@ -40,7 +43,8 @@ const initializeData = () => {
       inspiration: "Cosmic Wonder",
       content:
         "Drove out to the countryside to watch the meteor shower. The sky was incredibly clear, and we saw dozens of shooting stars. Something about looking up at the vast universe really puts things in perspective. Feeling both small and significant at the same time.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&auto=format",
     },
     "2025-02-01": {
       title: "Great Achievement Today!",
@@ -49,7 +53,8 @@ const initializeData = () => {
       inspiration: "Personal Growth",
       content:
         "Finally completed my first major coding project! The satisfaction of seeing everything work smoothly after weeks of learning and troubleshooting is incredible. This journey has taught me so much about persistence and problem-solving. Can't wait to start the next project!",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format",
     },
     "2025-02-02": {
       title: "Peaceful Weekend",
@@ -58,7 +63,8 @@ const initializeData = () => {
       inspiration: "Self-Care",
       content:
         "Spent the morning at my favorite café, reading and people-watching. The weather was perfect - sunny with a gentle breeze. Later went for a long walk in the park and practiced mindfulness. These simple moments really make life beautiful.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&auto=format",
     },
     "2025-02-03": {
       title: "Challenging Day",
@@ -67,7 +73,8 @@ const initializeData = () => {
       inspiration: "Learning Experience",
       content:
         "Had a tough meeting at work today. Not everything went as planned, but I'm trying to see it as a learning opportunity. Tomorrow is a new day with new possibilities. Need to focus on what I can control and improve.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format",
     },
     "2025-02-04": {
       title: "Family Dinner Night",
@@ -76,7 +83,8 @@ const initializeData = () => {
       inspiration: "Family Bonds",
       content:
         "Hosted a family dinner tonight. Mom's secret recipe was a hit as always! We shared stories, laughed, and just enjoyed being together. These moments are precious and remind me of what truly matters in life.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=800&auto=format",
     },
     "2025-02-05": {
       title: "Community Garden Project",
@@ -85,7 +93,8 @@ const initializeData = () => {
       inspiration: "Community Service",
       content:
         "Joined the neighborhood's community garden initiative today. We planned out the spring planting schedule and built some new raised beds. It's amazing to see how gardening brings people together. Looking forward to watching our shared space grow and flourish.",
-      imageURL: "https://picsum.photos/200/300",
+      imageURL:
+        "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&auto=format",
     },
   };
 
@@ -104,14 +113,6 @@ const MyCalendar = () => {
   const [selectedEntry, setSelectedEntry] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-
-  // Remove or comment out this useEffect as it's no longer needed
-  // useEffect(() => {
-  //   const savedEntries = JSON.parse(localStorage.getItem("journalEntries"));
-  //   if (savedEntries) {
-  //     setDiaryEntries(savedEntries);
-  //   }
-  // }, []);
 
   const handleDateChange = (date) => {
     const formattedDate = new Date(

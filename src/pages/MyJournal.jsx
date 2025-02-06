@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css";
 import Form from "../components/Form";
 import Button from "../components/Button";
 import JournalCard from "../components/JournalCard";
@@ -21,7 +23,7 @@ const MyJournal = () => {
   const openJournal = () => {
     const today = new Date().toISOString().split("T")[0];
     if (entries[today]) {
-      alert("Your cup is full, please return tomorrow.");
+      toast.info("Your cup is full, please return tomorrow.");  
       return;
     }
     setShowModal(true);
@@ -32,7 +34,7 @@ const MyJournal = () => {
     const updatedEntries = { ...entries, [today]: entryData };
     setEntries(updatedEntries);
     setShowModal(false);
-    alert("Entry Submitted: enjoy your peace of mind!");
+    toast.success("Entry Submitted: enjoy your peace of mind!");
   };
 
   return (
@@ -62,7 +64,8 @@ const MyJournal = () => {
               <JournalCard key={date} entry={entry} />
             ))}
         </div>
-      </div>
+      </div>  
+      <ToastContainer />
     </div>
   );
 };

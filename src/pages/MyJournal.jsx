@@ -1,32 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import Form from '../components/Form';
-import Button from '../components/Button';
+import React, { useState, useEffect } from "react";
+import Form from "../components/Form";
+import Button from "../components/Button";
 
 const MyJournal = () => {
   const [entries, setEntries] = useState({});
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    console.log('Entries updated:', entries);
+    //console.log('Entries updated:', entries);
+    const savedEntries = JSON.parse(localStorage.getItem("journalEntries"));
+    if (savedEntries) {
+      setEntries(savedEntries);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("journalEntries", JSON.stringify(entries));
   }, [entries]);
 
   const openJournal = () => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split("T")[0];
     if (entries[today]) {
-      alert('Your cup is full, please return tomorrow.');
+      alert("Your cup is full, please return tomorrow.");
       return;
     }
     setShowModal(true);
   };
 
   const handleFormSubmit = (entryData) => {
-    const today = new Date().toISOString().split('T')[0];
-    setEntries((prevEntries) => ({
-      ...prevEntries,
-      [today]: entryData,
-    }));
+    const today = new Date().toISOString().split("T")[0];
+    const updatedEntries = { ...entries, [today]: entryData };
+    setEntries(updatedEntries);
+    //setEntries((prevEntries) => ({
+    //  ...prevEntries,
+    //  [today]: entryData,
+    //}));
     setShowModal(false);
-    alert('Entry Submitted: enjoy your peace of mind!');
+    alert("Entry Submitted: enjoy your peace of mind!");
   };
 
   return (

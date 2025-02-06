@@ -3,22 +3,23 @@ import Button from "./Button";
 
 const Form = ({ onSubmit }) => {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState(""); 
+  const [date, setDate] = useState("");
   const [mood, setMood] = useState("happy");
   const [inspiration, setInspiration] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [content, setContent] = useState("");
+  const [selectedDate, setSelectedDate] = useState();
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     if (!title || !date || !mood || !inspiration || !imageURL || !content) {
-      alert('Please complete all fields');
+      alert("Please complete all fields");
       return;
     }
 
     const entryData = {
-      title, 
+      title,
       date,
       mood,
       inspiration,

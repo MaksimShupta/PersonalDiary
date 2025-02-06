@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/carter-one": "^5.1.1",
+    "@fontsource/caudex": "^5.1.1",
     "lottie-react": "^2.4.1",
     "react": "^18.3.1",
     "react-calendar": "^5.1.0",
